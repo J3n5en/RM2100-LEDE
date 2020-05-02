@@ -25,7 +25,10 @@ git config core.sparsecheckout true
 echo "luci-app-openclash" >> .git/info/sparse-checkout
 git pull origin master
 git branch --set-upstream-to=origin/master master
-
+echo $(pwd)
+echo ~
+cd ../..
 # 编译 po2lmo (如果有po2lmo可跳过)
-cd package/luci-app-openclash/luci-app-openclash/tools/po2lmo
+pushd package/luci-app-openclash/luci-app-openclash/tools/po2lmo
 make && sudo make install
+popd
